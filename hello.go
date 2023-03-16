@@ -9,6 +9,9 @@ func Hello() string {
 }
 
 func HelloName(name string) string {
+	if name == "" {
+		name = "world"
+	}
 	return englishHeloPrefix + name
 }
 
