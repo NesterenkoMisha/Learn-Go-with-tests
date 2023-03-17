@@ -2,33 +2,16 @@ package integers
 
 import "fmt"
 
-const englishHelloPrefix = "Hello"
-const spanishHelloPrefix = "Hola"
-const frenchHelloPrefix = "Bonjour"
-
-// Hello method returns a greeting string like: "Hello, $name"
-// to the user in the required language.
-func Hello(name string, language string) string {
-	if name == "" {
-		name = "world"
-	}
-
-	return HelloPrefix(language) + ", " + name
+// Add takes two integers and returns the sum of them.
+func Add(x, y int) int {
+	return x + y
 }
 
-// HelloPrefix return the correct "Hello" phrase by the language inputted
-func HelloPrefix(language string) (prefix string) {
-	switch language {
-	case "Spanish":
-		prefix = spanishHelloPrefix
-	case "French":
-		prefix = frenchHelloPrefix
-	default:
-		prefix = englishHelloPrefix
-	}
-	return
+// Subtracting y from x and returns the result.
+func Sub(x, y int) int {
+	return x - y
 }
 
 func main() {
-	fmt.Println(Hello("Misha", "English"))
+	fmt.Println(Add(2, 2))
 }
