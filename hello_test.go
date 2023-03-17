@@ -28,4 +28,10 @@ func TestHelloNameAgain(t *testing.T) {
 
 		assertMethodsOutput(t, actual, expected)
 	})
+	t.Run("in French", func(t *testing.T) {
+		actual := Hello("Teo", "French")
+		expected := "Bonjour, Teo"
+
+		assertMethodsOutput(t, actual, expected)
+	})
 }
