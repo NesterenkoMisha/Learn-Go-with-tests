@@ -22,7 +22,13 @@ func TestSub(t *testing.T) {
 }
 
 func ExampleAdd() {
-	sum := Add(1, 5)
-	fmt.Println(sum)
+	result := Add(1, 5)
+	fmt.Println(result)
 	// Output: 6
+}
+
+func ExampleSub() {
+	result := Sub(8, 3)
+	fmt.Println(result)
+	// Output: 5
 }
