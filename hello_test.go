@@ -2,22 +2,36 @@ package main
 
 import "testing"
 
-// Testing the Hello method that should return "Hello, world"
-func TestHello(t *testing.T) {
-	got := Hello()
-	want := "Hello, world"
-
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
+func assertMethodsOutput(t *testing.T, expected string, actual string) {
+	if actual != expected {
+		t.Errorf("Actual: %q ; But expected: %q", actual, expected)
 	}
 }
 
-// Checking that HelloName is returning a "Hello, $NAME" message
-func TestHelloName(t *testing.T) {
-	got := HelloName("Chris")
-	want := "Hello, Chris"
+// Using sub-tests for checking all possible scenarios for the Hello(sting, string) method
+func TestHelloNameAgain(t *testing.T) {
+	t.Run("saying hello to people", func(t *testing.T) {
+		actual := Hello("Chris", "")
+		expected := "Hello, Chris"
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+		assertMethodsOutput(t, actual, expected)
+	})
+	t.Run("say 'Hello, world' when an empty string is supplied", func(t *testing.T) {
+		actual := Hello("", "")
+		expected := "Hello, world"
+
+		assertMethodsOutput(t, actual, expected)
+	})
+	t.Run("in Spanish", func(t *testing.T) {
+		actual := Hello("Elide", "Spanish")
+		expected := "Hola, Elide"
+
+		assertMethodsOutput(t, actual, expected)
+	})
+	t.Run("in French", func(t *testing.T) {
+		actual := Hello("Teo", "French")
+		expected := "Bonjour, Teo"
+
+		assertMethodsOutput(t, actual, expected)
+	})
 }
